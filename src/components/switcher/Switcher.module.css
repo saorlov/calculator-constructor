@@ -1,0 +1,46 @@
+.switcher_block {
+    width: 100%;
+    padding: 38px 76px 0 76px;
+    display: flex;
+    justify-content: flex-end;
+}
+.switcher_wrapper {
+    padding: 1px;
+    background: #F3F4F6;
+    border-radius: 6px;
+    width: 243px;
+    height: 38px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.switcher_active {
+    background: #FFFFFF;
+    border: 1px solid #E2E3E5;
+    border-radius: 5px;
+    cursor: default;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.switcher_active span {
+    font-family: 'Inter', serif;
+}
+
+.switcher_passive {
+    border-radius: 5px;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.switcher_passive span {
+    font-family: 'Inter', serif;
+}

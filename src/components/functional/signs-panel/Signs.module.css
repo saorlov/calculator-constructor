@@ -1,0 +1,41 @@
+.signs_wrapper {
+    width: 240px;
+    height: 56px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06), 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+}
+
+.sign_button {
+    width: 52px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid #E2E3E5;
+    border-radius: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.sign_button:active {
+    background: #5D5FEF;
+}
+
+.sign_button:active .sign_text {
+    color: #fff
+}
+
+.sign_text {
+    font-family: 'Inter', serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
+    color: #000000;
+}

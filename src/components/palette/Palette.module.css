@@ -1,0 +1,10 @@
+.palette_wrapper {
+    min-width: 240px;
+    padding: 4px;
+}
+
+.palette_elements {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}

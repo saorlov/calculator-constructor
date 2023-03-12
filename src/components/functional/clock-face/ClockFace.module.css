@@ -1,0 +1,33 @@
+.clockface_wrapper {
+    width: 240px;
+    height: 60px;
+    padding: 4px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06), 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.clockface_clockface {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 4px 8px;
+    gap: 10px;
+    width: 232px;
+    height: 52px;
+    background: #F3F4F6;
+    border-radius: 6px;
+}
+
+.clockface_input {
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 44px;
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+    color: #111827;
+}

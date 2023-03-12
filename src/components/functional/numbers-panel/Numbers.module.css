@@ -1,0 +1,40 @@
+.numbers_wrapper {
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06), 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 4px;
+    width: 240px;
+    height: 224px;
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: repeat(3, [col] 72px ) ;
+    grid-template-rows: repeat(3, [row] auto  );
+}
+
+.number_button {
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid #E2E3E5;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.number_button:active {
+    background: #5D5FEF;
+}
+
+.number_button:active .number_button_text {
+    color: #fff;
+}
+
+.number_button_text {
+    font-family: 'Inter', serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
+    color: #000000;
+}

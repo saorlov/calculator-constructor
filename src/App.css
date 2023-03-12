@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main_layout {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.work_field {
+    padding: 30px 76px 38px 76px;
+    width: 695px;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 56px;
+}
