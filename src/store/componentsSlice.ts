@@ -41,6 +41,10 @@ export const componentsSlice = createSlice({
         markAsDragged(state, action: { type: string, payload: Key }) {
             state[state.findIndex(el => el._id === action.payload)].dragged = true
             return state
+        },
+        unmarkDragged (state, action: {type: string, payload: Key}) {
+            state[state.findIndex(el => el._id === action.payload)].dragged = false
+            return state
         }
     }
 })

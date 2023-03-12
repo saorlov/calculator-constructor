@@ -24,7 +24,7 @@ function Signs({ element, clickHandler }: any) {
                     return (
                         <button
                             onClick={() => { clickHandler && isActive ? clickHandler(el.value) : () => {} }}
-                            className={classes.sign_button}
+                            className={isActive ? classes.sign_button : classes.inactive_sign_button}
                             key={el.name}
                             style={isActive ? displayStyles.active : displayStyles.inactive}
                         >

@@ -32,7 +32,7 @@ function NumberButton({ value, clickHandler, isActive }: NumberButtonProps) {
     return (
         <button
             onClick={() => { clickHandler(value) }}
-            className={classes.number_button}
+            className={isActive ? classes.number_button : classes.inactive_number_button}
             style={value === '0' ? styles.zeroClass : styles.commonClass}
         >
             <span className={classes.number_button_text}>{ value }</span>

@@ -3,7 +3,7 @@ import { ItemTypes } from "../../utils/itemTypes";
 import { CalculatorElement } from "../../utils/itemTypes";
 import { components } from "../../utils/arrays";
 
-function LayOut ({ _id, element, name }: CalculatorElement) {
+function LayOut ({ _id, element, name, dragged }: CalculatorElement) {
 
     const Component = components.get(name)
 
@@ -23,7 +23,7 @@ function LayOut ({ _id, element, name }: CalculatorElement) {
     }
 
     return (
-        <div ref={drag} style={isDragging ? itemStyle.dragging : itemStyle.notDragging}>
+        <div ref={!dragged ? drag : null} style={isDragging || dragged ? itemStyle.dragging : itemStyle.notDragging}>
             <Component element={element} />
         </div>
     )

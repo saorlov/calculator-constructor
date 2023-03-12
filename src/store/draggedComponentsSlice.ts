@@ -15,6 +15,11 @@ interface ActionReorder  {
     }
 }
 
+interface ActionDelete {
+    type: string,
+    payload: Key
+}
+
 
 const draggedState: CalculatorElement[] = []
 
@@ -41,6 +46,9 @@ export const draggedSlice = createSlice({
 
             state.splice(state.findIndex(el => el._id === action.payload.element._id), 1)
             state.splice(state.findIndex(el => el._id === action.payload.elementAfter), 0, action.payload.element)
+        },
+        deleteElement (state, action: ActionDelete) {
+            state.splice(state.findIndex(el => el._id === action.payload), 1)
         }
     }
 })

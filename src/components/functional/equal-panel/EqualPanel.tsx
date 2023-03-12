@@ -28,7 +28,7 @@ function EqualPanel({ element, clickHandler }: any) {
                         onClick={
                             clickHandler && isActive ? () => { handleClick(el.value) } : () => {}
                         }
-                        className={classes.equal_button}
+                        className={isActive ? classes.equal_button : classes.inactive_equal_button}
                         key={el.name}
                         style={isActive ? displayStyles.active : displayStyles.inactive}
                     >

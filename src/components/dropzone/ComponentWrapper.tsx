@@ -2,6 +2,7 @@ import { useDrag, useDrop } from "react-dnd";
 import { ItemTypes } from "../../utils/itemTypes";
 import { CalculatorElement } from "../../utils/itemTypes";
 import { draggedActions } from "../../store/draggedComponentsSlice";
+import { componentsActions } from "../../store/componentsSlice";
 import { useCalculatorDispatch, useCalculatorSelector } from "../../hooks/hooks";
 import { Key } from "react";
 import { calcActions } from "../../store/calcSlice";
@@ -43,6 +44,7 @@ function ComponentWrapper ({ _id, element, name }: CalculatorElement) {
                 element: stateArr.components.filter(el => el._id === item.id)[0],
                 elementAfter: _id
             }))
+            dispatcher(componentsActions.markAsDragged(item.id))
         },
         collect: monitor => ({
             isOver: monitor.isOver(),
@@ -58,9 +60,14 @@ function ComponentWrapper ({ _id, element, name }: CalculatorElement) {
         dispatcher(calculator.handleInputAction(value))
     }
 
+    const handleDoubleClick = () => {
+        dispatcher(componentsActions.unmarkDragged(_id))
+        dispatcher(draggedActions.deleteElement(_id))
+    }
+
 
     return (
-        <div ref={stateArr.isActive ? drop : null}>
+        <div ref={stateArr.isActive ? drop : null} onDoubleClick={handleDoubleClick}>
             {
                 stateArr.dragged.length > 0 &&
                 isOver &&

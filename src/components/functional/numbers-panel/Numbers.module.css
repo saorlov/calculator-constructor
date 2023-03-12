@@ -11,6 +11,17 @@
     grid-template-rows: repeat(3, [row] auto  );
 }
 
+.inactive_number_button {
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid #E2E3E5;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
 .number_button {
     height: 48px;
     background: #FFFFFF;

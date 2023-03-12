@@ -18,7 +18,7 @@ function Palette() {
                 <div className={classes.palette_elements}>
                     {paletteComponents.components.map(el => {
                         return (
-                            <LayOut key={el._id} _id={el._id} name={el.name} element={el.element}  active dragged/>
+                            <LayOut key={el._id} _id={el._id} name={el.name} element={el.element}  active dragged={el.dragged}/>
                         )
                     })}
                 </div>

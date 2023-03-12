@@ -5,6 +5,7 @@ import { Key } from "react";
 import DropZoneTextBlock from "./DropZoneTextBlock";
 import { useCalculatorDispatch, useCalculatorSelector } from "../../hooks/hooks";
 import { draggedActions } from "../../store/draggedComponentsSlice";
+import { componentsActions } from "../../store/componentsSlice";
 import ComponentWrapper from "./ComponentWrapper";
 
 type ItemType = {
@@ -27,6 +28,7 @@ function DropZone() {
         accept: ItemTypes.COMPONENT,
         drop: (item: ItemType, monitor) => {
             dispatcher(draggedActions.addElement(stateArr.components.filter(el => el._id === item.id)[0]))
+            dispatcher(componentsActions.markAsDragged(item.id))
         },
         collect: monitor => ({
             isOver: monitor.isOver(),

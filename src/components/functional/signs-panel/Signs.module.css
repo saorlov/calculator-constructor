@@ -11,6 +11,18 @@
     gap: 8px;
 }
 
+.inactive_sign_button {
+    width: 52px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid #E2E3E5;
+    border-radius: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
 .sign_button {
     width: 52px;
     height: 48px;
