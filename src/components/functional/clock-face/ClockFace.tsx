@@ -18,6 +18,9 @@ function ClockFace () {
       displayValue = String(parseFloat(displayValue).toFixed(roundPoint))
     } else {
       displayValue = String(parseFloat(displayValue).toExponential())
+      if (isNaN(parseFloat(displayValue))) {
+        displayValue = displayState.number
+      }
     }
   }
 
