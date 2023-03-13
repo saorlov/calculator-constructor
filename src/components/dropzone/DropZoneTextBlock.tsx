@@ -1,7 +1,7 @@
-import classes from "./DropZone.module.css";
+import classes from './DropZone.module.css'
 
-function DropZoneTextBlock() {
-    return (
+function DropZoneTextBlock () {
+  return (
         <div className={classes.dropzone_wrapper_textblock}>
             <div className={classes.dropzone_wrapper_textblock_elwrap}>
                             <span className={classes.dropzone_wrapper_textblock_picture}>
@@ -25,7 +25,7 @@ function DropZoneTextBlock() {
                             </span>
             </div>
         </div>
-    )
+  )
 }
 
 export default DropZoneTextBlock

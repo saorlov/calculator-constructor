@@ -1,10 +1,9 @@
-import Palette from "./palette/Palette";
-import DropZone from "./dropzone/DropZone";
-import Switcher from "./switcher/Switcher";
+import Palette from './palette/Palette'
+import DropZone from './dropzone/DropZone'
+import Switcher from './switcher/Switcher'
 
-function MainConstructor() {
-
-    return (
+function MainConstructor () {
+  return (
         <div>
             <div>
                 <Switcher />
@@ -15,8 +14,7 @@ function MainConstructor() {
             </div>
         </div>
 
-    )
-
+  )
 }
 
 export default MainConstructor

@@ -1,21 +1,21 @@
-import { Key } from "react";
+import { type Key } from 'react'
 
 export const ItemTypes = {
-    COMPONENT: 'calculatorComponent'
+  COMPONENT: 'calculatorComponent'
 }
 
-export type CalculatorElement = {
-    _id: Key,
-    name: string,
-    element: Array<{
-        name: string,
-        value: string
-    }>,
-    dragged: Boolean,
-    active: Boolean,
-}
-
-export type ElementType = {
-    name: string,
+export interface CalculatorElement {
+  _id: Key
+  name: string
+  element: Array<{
+    name: string
     value: string
+  }>
+  dragged: boolean
+  active: boolean
+}
+
+export interface ElementType {
+  name: string
+  value: string
 }

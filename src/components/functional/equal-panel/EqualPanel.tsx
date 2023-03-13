@@ -1,29 +1,27 @@
 import classes from './EqualPannel.module.css'
-import {ElementType} from "../../../utils/itemTypes";
-import {useCalculatorSelector} from "../../../hooks/hooks";
-import {useState} from "react";
+import { type ElementType } from '../../../utils/itemTypes'
+import { useCalculatorSelector } from '../../../hooks/hooks'
 
-function EqualPanel({ element, clickHandler }: any) {
+function EqualPanel ({ element, clickHandler }: any) {
+  const isActive = useCalculatorSelector(state => state.active.active)
 
-    const isActive = useCalculatorSelector(state => state.active.active)
-
-    const displayStyles = {
-        active: {
-            cursor: 'pointer',
-        },
-        inactive: {
-            cursor: 'move'
-        }
+  const displayStyles = {
+    active: {
+      cursor: 'pointer'
+    },
+    inactive: {
+      cursor: 'move'
     }
+  }
 
-    const handleClick = (value: string) => {
-        clickHandler(value)
-    }
+  const handleClick = (value: string) => {
+    clickHandler(value)
+  }
 
-    return (
+  return (
         <div className={classes.equal_wrapper} >
             {element.map((el: ElementType) => {
-                return (
+              return (
                     <button
                         onClick={
                             clickHandler && isActive ? () => { handleClick(el.value) } : () => {}
@@ -36,10 +34,11 @@ function EqualPanel({ element, clickHandler }: any) {
                             {el.value}
                         </span>
                     </button>
-                )
+              )
             })}
         </div>
-    )
+  )
 }
 
 export default EqualPanel
+

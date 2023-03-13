@@ -1,35 +1,35 @@
-import classes from "./Numbers.module.css";
+import classes from './Numbers.module.css'
 
-type NumberButtonProps = {
-    value: string
-    clickHandler: Function
-    isActive: Boolean
+interface NumberButtonProps {
+  value: string
+  clickHandler: (a: string) => void;
+  isActive: boolean
 }
 
-function NumberButton({ value, clickHandler, isActive }: NumberButtonProps) {
-
-    const styles = !isActive ? {
+function NumberButton ({ value, clickHandler, isActive }: NumberButtonProps) {
+  const styles = !isActive
+    ? {
         zeroClass: {
-            gridColumn: "col / span 2",
-            cursor: "move"
+          gridColumn: 'col / span 2',
+          cursor: 'move'
         },
         commonClass: {
-            gridColumn: "",
-            cursor: "move"
+          gridColumn: '',
+          cursor: 'move'
         }
-    } :
-    {
+      }
+    : {
         zeroClass: {
-            gridColumn: "col / span 2",
-            cursor: "pointer"
+          gridColumn: 'col / span 2',
+          cursor: 'pointer'
         },
         commonClass: {
-            gridColumn: "",
-            cursor: "pointer"
+          gridColumn: '',
+          cursor: 'pointer'
         }
-    }
+      }
 
-    return (
+  return (
         <button
             onClick={() => { clickHandler(value) }}
             className={isActive ? classes.number_button : classes.inactive_number_button}
@@ -37,7 +37,7 @@ function NumberButton({ value, clickHandler, isActive }: NumberButtonProps) {
         >
             <span className={classes.number_button_text}>{ value }</span>
         </button>
-    )
+  )
 }
 
 export default NumberButton

@@ -1,15 +1,14 @@
 import './App.css'
-import MainConstructor from "./components/MainConstructor";
-
+import MainConstructor from './components/MainConstructor'
 
 function App () {
-    return (
+  return (
         <>
             <div className={'main_layout'}>
                 <MainConstructor />
             </div>
         </>
-    )
+  )
 }
 
 export default App

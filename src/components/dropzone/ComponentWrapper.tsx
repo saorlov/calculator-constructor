@@ -1,74 +1,72 @@
-import { useDrag, useDrop } from "react-dnd";
-import { ItemTypes } from "../../utils/itemTypes";
-import { CalculatorElement } from "../../utils/itemTypes";
-import { draggedActions } from "../../store/draggedComponentsSlice";
-import { componentsActions } from "../../store/componentsSlice";
-import { useCalculatorDispatch, useCalculatorSelector } from "../../hooks/hooks";
-import { Key } from "react";
-import { calcActions } from "../../store/calcSlice";
-import { components } from "../../utils/arrays";
+import { useDrag, useDrop } from 'react-dnd'
+import { ItemTypes, type CalculatorElement } from '../../utils/itemTypes'
 
-type ItemType = {
-    id: Key
+import { draggedActions } from '../../store/draggedComponentsSlice'
+import { componentsActions } from '../../store/componentsSlice'
+import { useCalculatorDispatch, useCalculatorSelector } from '../../hooks/hooks'
+import { type Key } from 'react'
+import { calcActions } from '../../store/calcSlice'
+import { components } from '../../utils/arrays'
+
+interface ItemType {
+  id: Key
 }
 
 function ComponentWrapper ({ _id, element, name }: CalculatorElement) {
+  const Component = components.get(name)
 
-    const Component = components.get(name)
+  const stateArr = useCalculatorSelector(state => {
+    return {
+      components: state.components,
+      dragged: state.dragged,
+      isActive: !state.active.active
+    }
+  })
 
-    const stateArr = useCalculatorSelector(state => {
-        return {
-            components: state.components,
-            dragged: state.dragged,
-            isActive: !state.active.active
-        }
+  const dispatcher = useCalculatorDispatch()
+  const calculator = calcActions
+
+  const [{ isDragging }, drag] = useDrag({
+    type: ItemTypes.COMPONENT,
+    item: {
+      id: _id
+    },
+    collect: monitor => ({
+      isDragging: monitor.isDragging()
     })
+  })
 
-    const dispatcher = useCalculatorDispatch()
-    const calculator = calcActions
-
-    const [{ isDragging }, drag] = useDrag({
-        type: ItemTypes.COMPONENT,
-        item: {
-            id: _id
-        },
-        collect: monitor => ({
-            isDragging: monitor.isDragging(),
-        }),
+  const [{ isOver }, drop] = useDrop({
+    accept: ItemTypes.COMPONENT,
+    drop: (item: ItemType, monitor) => {
+      dispatcher(draggedActions.changeOrder({
+        element: stateArr.components.filter(el => el._id === item.id)[0],
+        elementAfter: _id
+      }))
+      dispatcher(componentsActions.markAsDragged(item.id))
+    },
+    collect: monitor => ({
+      isOver: monitor.isOver()
     })
+  })
 
-    const [{ isOver }, drop] = useDrop({
-        accept: ItemTypes.COMPONENT,
-        drop: (item: ItemType, monitor) => {
-            dispatcher(draggedActions.changeOrder({
-                element: stateArr.components.filter(el => el._id === item.id)[0],
-                elementAfter: _id
-            }))
-            dispatcher(componentsActions.markAsDragged(item.id))
-        },
-        collect: monitor => ({
-            isOver: monitor.isOver(),
-        }),
-    });
+  const itemStyle = {
+    dragging: { opacity: '.5', cursor: 'move' },
+    notDragging: { opacity: '1', cursor: 'move' }
+  }
 
-    const itemStyle = {
-        dragging: {opacity: '.5', cursor: 'move'},
-        notDragging: {opacity: '1', cursor: 'move'}
+  const clickHandler = (value: string) => {
+    dispatcher(calculator.handleInputAction(value))
+  }
+
+  const handleDoubleClick = () => {
+    if (stateArr.isActive) {
+      dispatcher(componentsActions.unmarkDragged(_id))
+      dispatcher(draggedActions.deleteElement(_id))
     }
+  }
 
-    const clickHandler = (value: string) => {
-        dispatcher(calculator.handleInputAction(value))
-    }
-
-    const handleDoubleClick = () => {
-        if (stateArr.isActive) {
-            dispatcher(componentsActions.unmarkDragged(_id))
-            dispatcher(draggedActions.deleteElement(_id))
-        }
-    }
-
-
-    return (
+  return (
         <div ref={stateArr.isActive ? drop : null} onDoubleClick={handleDoubleClick}>
             {
                 stateArr.dragged.length > 0 &&
@@ -82,7 +80,7 @@ function ComponentWrapper ({ _id, element, name }: CalculatorElement) {
                 <Component clickHandler={clickHandler} element={element} />
             </div>
         </div>
-    )
+  )
 }
 
 export default ComponentWrapper
