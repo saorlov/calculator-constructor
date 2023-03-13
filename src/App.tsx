@@ -2,7 +2,7 @@ import './App.css'
 import MainConstructor from "./components/MainConstructor";
 
 
-function App() {
+function App () {
     return (
         <>
             <div className={'main_layout'}>

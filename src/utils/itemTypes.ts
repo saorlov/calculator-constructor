@@ -1,4 +1,4 @@
-import {Key} from "react";
+import { Key } from "react";
 
 export const ItemTypes = {
     COMPONENT: 'calculatorComponent'
@@ -7,10 +7,10 @@ export const ItemTypes = {
 export type CalculatorElement = {
     _id: Key,
     name: string,
-    element: {
+    element: Array<{
         name: string,
         value: string
-    }[],
+    }>,
     dragged: Boolean,
     active: Boolean,
 }

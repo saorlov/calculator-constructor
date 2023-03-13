@@ -35,6 +35,10 @@
     align-content: center;
 }
 
+.sign_button:hover {
+    border: 2px solid #5D5FEF;
+}
+
 .sign_button:active {
     background: #5D5FEF;
 }

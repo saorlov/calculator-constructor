@@ -33,6 +33,10 @@
     flex-wrap: wrap;
 }
 
+.number_button:hover {
+    border: 2px solid #5D5FEF;
+}
+
 .number_button:active {
     background: #5D5FEF;
 }

@@ -61,8 +61,10 @@ function ComponentWrapper ({ _id, element, name }: CalculatorElement) {
     }
 
     const handleDoubleClick = () => {
-        dispatcher(componentsActions.unmarkDragged(_id))
-        dispatcher(draggedActions.deleteElement(_id))
+        if (stateArr.isActive) {
+            dispatcher(componentsActions.unmarkDragged(_id))
+            dispatcher(draggedActions.deleteElement(_id))
+        }
     }
 
 

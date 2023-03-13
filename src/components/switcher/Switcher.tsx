@@ -14,14 +14,16 @@ function Switcher() {
         <div className={classes.switcher_block}>
             <div className={classes.switcher_wrapper}>
                 <div onClick={clickHandler} className={isActive ? classes.switcher_active : classes.switcher_passive}>
-                <span>
-                    Runtime
-                </span>
+                    <img className={isActive ? classes.switcher_tab_icon_active : ''} src={'../../../public/eye.svg'} alt=""/>
+                    <span>
+                        Runtime
+                    </span>
                 </div>
                 <div onClick={clickHandler} className={isActive ? classes.switcher_passive : classes.switcher_active}>
-                <span>
-                    Constructor
-                </span>
+                    <img className={!isActive ? classes.switcher_tab_icon_active : ''} src={'../../../public/selector.svg'} alt=""/>
+                    <span>
+                        Constructor
+                    </span>
                 </div>
             </div>
         </div>

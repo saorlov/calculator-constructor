@@ -31,3 +31,7 @@
     text-align: right;
     color: #111827;
 }
+
+.clockface_input_small {
+    font-size: 19px;
+}
